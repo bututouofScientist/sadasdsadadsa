@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+</head>
+<body>
+<div>
+    <form method="post" action="{% url 'user:login' %}">
+        <p>
+            <label>用户名:</label>
+            <input id="username" name="username" value="{{ username }}" placeholder="请输入用户名" onfocus="clearForm()">
+            <span id="usernamemessage" style="color: red">{{ usernamemessage }}</span>
+        </p>
+
+        <p>
+            <label>密&nbsp&nbsp&nbsp码:</label>
+            <input id="password" name="password" type="password" value="{{ password }}" placeholder="请输入密码" onfocus="clearForm()">
+            <span id="passwordmessage" style="color: red">{{ passwordmessage }}</span>
+        </p>
+
+        <span id="meassage" style="color: red">{{ message }}</span>
+
+        <p>
+            <button type="submit">登录</button>
+            <button type="button" onclick="resetForm()">重置</button>
+        </p>
+    </form>
+</div>
+<script>
+    function clearForm() {
+        document.getElementById('usernamemessage').innerHTML='';
+        document.getElementById('passwordmessage').innerHTML='';
+        document.getElementById('message').innerHTML='';
+    }
+    function resetForm() {
+        document.getElementById('username').value='';
+        document.getElementById('password').value='';
+    }
+</script>
+</body>
+</html>
